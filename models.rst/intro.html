@@ -1,0 +1,222 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Introduction &mdash; EARM 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="EARM 2.0 documentation" href="index.html" />
+    <link rel="next" title="Overview of the models" href="models.html" />
+    <link rel="prev" title="Extrinsic Apoptosis Reaction Model (EARM)" href="index.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="models.html" title="Overview of the models"
+             accesskey="N">next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Extrinsic Apoptosis Reaction Model (EARM)"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">EARM 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="introduction">
+<h1>Introduction<a class="headerlink" href="#introduction" title="Permalink to this headline">¶</a></h1>
+<div class="section" id="what-is-earm">
+<h2>What is EARM?<a class="headerlink" href="#what-is-earm" title="Permalink to this headline">¶</a></h2>
+<p>The Extrinsic Apoptosis Reaction Model (EARM), is <strong>a family of novel and
+previously published models of extrinsic apoptosis, focusing on variant
+hypotheses for how the Bcl-2 protein family regulates mitochondrial outer
+membrane permeabilization (MOMP).</strong> All models are written using the Python
+software framework <a class="reference external" href="http://pysb.org">PySB</a>.</p>
+<p>The models in this Python package implement 15 different mechanistic hypotheses for MOMP regulation by the Bcl-2 protein family, including</p>
+<ul class="simple">
+<li>3 novel MOMP models of expanded scope that are unique to EARM and are
+described in Lopez et al. (2013), ([Lopez2013])</li>
+<li>5 MOMP models with hypothetical reaction topologies previously described in
+Albeck et al. (2008) PLoS Biology, Figure 11 ([Albeck2008])</li>
+<li>6 MOMP models drawn from three papers from the research group of Pingping Shen
+([Chen2007biophysj], [Chen2007febs], [Cui2008])</li>
+<li>1 MOMP model focusing on Bad phosphorylation drawn from Howells et
+al. (2011), J. Theor. Biol. ([Howells2011])</li>
+</ul>
+<p>Moreover, for each of these there is a MOMP-only (&#8220;mito&#8221;) version of the model
+and a full-apoptosis version of the model, in which the MOMP model is linked to
+the upstream and downstream pathways of extrinsic apoptosis from the previously
+published EARM 1.0 from [Albeck2008]. <strong>This gives a total of 30 different
+models.</strong></p>
+</div>
+<div class="section" id="goals">
+<h2>Goals<a class="headerlink" href="#goals" title="Permalink to this headline">¶</a></h2>
+<p>Our goals in creating EARM were to:</p>
+<ul class="simple">
+<li>Create a newly updated model of the extrinsic apoptosis pathway incorporating
+current knowledge of Bcl-2 interactions and MOMP mechanism</li>
+<li>Demonstrate the use of PySB for transparent and reusable model development</li>
+<li>Make previous apoptosis modeling work from the community available for reuse
+in a common format</li>
+<li>Explore approaches for working with, and discriminating among, multiple
+hypotheses for biological mechanisms</li>
+<li>Engage the modeling community in a pilot effort to use software engineering
+tools and approaches for incremental, collaborative model development.</li>
+</ul>
+</div>
+<div class="section" id="installation">
+<h2>Installation<a class="headerlink" href="#installation" title="Permalink to this headline">¶</a></h2>
+<p>EARM requires PySB, but itself is pure Python (i.e., does not require
+installation or compilation of dependencies written in languages other than
+Python). PySB is available at <a class="reference external" href="http://pysb.org">http://pysb.org</a> and <a class="reference external" href="http://github.com/pysb/pysb">http://github.com/pysb/pysb</a>.
+EARM has its own website at <a class="reference external" href="http://sorgerlab.github.com/earm">http://sorgerlab.github.com/earm</a>.</p>
+<div class="admonition note">
+<p class="first admonition-title">Note</p>
+<p>The PySB VM includes EARM!</p>
+<p class="last">If you are using PySB via the downloadable virtual machine, EARM is already
+installed.</p>
+</div>
+<p>You can get the latest version of EARM from <a class="reference external" href="http://www.github.com">GitHub</a> at
+<a class="reference external" href="http://github.com/sorgerlab/earm">http://github.com/sorgerlab/earm</a>. If you are a <a class="reference external" href="http://www.git-scm.com">Git</a>
+user you can get the source code with:</p>
+<div class="highlight-python"><div class="highlight"><pre>git clone https://github.com/sorgerlab/earm.git
+</pre></div>
+</div>
+<p>which will create a directory called <tt class="docutils literal"><span class="pre">earm</span></tt> containing all EARM files.</p>
+<p>If you are not a Git user you can download a ZIP file at
+<a class="reference external" href="https://github.com/sorgerlab/earm/zipball/master">https://github.com/sorgerlab/earm/zipball/master</a>.</p>
+<p>Once you have downloaded the EARM source code, install EARM by
+switching to the top-level EARM source directory and running:</p>
+<div class="highlight-python"><div class="highlight"><pre>python setup.py install
+</pre></div>
+</div>
+</div>
+<div class="section" id="how-to-use-the-documentation">
+<h2>How to use the documentation<a class="headerlink" href="#how-to-use-the-documentation" title="Permalink to this headline">¶</a></h2>
+<p>In addition to this introduction, a general description of how the model
+implementations are organized into Python modules can be found in the
+<a class="reference internal" href="models.html"><em>Overview of the models</em></a>.</p>
+<p>More detailed descriptions of each model, with links to the Python source code
+that serves as the actual model specification, can be found at
+<tt class="xref doc docutils literal"><span class="pre">modules/index</span></tt>.</p>
+<p>In addition to the model specifications, EARM also contains a set of tests that
+can be run to ensure that the models can be successfully loaded and that
+the PySB re-implementations of previously published models exactly
+match their prior implementations (specified as systems of ordinary differential
+equations). Documentation and code for these tests can be found at
+<tt class="xref doc docutils literal"><span class="pre">tests/index</span></tt>.</p>
+</div>
+<div class="section" id="staying-current">
+<h2>Staying current<a class="headerlink" href="#staying-current" title="Permalink to this headline">¶</a></h2>
+<p>This package is subject to change. In particular it may be refactored to stay
+current with ongoing updates to PySB, or to add new models and fix errors in
+existing ones. To be notified of updates, follow EARM on GitHub at
+<a class="reference external" href="http://github.com/sorgerlab/earm">http://github.com/sorgerlab/earm</a>. If you use Git, you can get updates by going
+to the EARM source directory and running <tt class="docutils literal"><span class="pre">git</span> <span class="pre">pull</span></tt>. After getting the update
+source code, you will need to re-install by running <tt class="docutils literal"><span class="pre">python</span> <span class="pre">setup.py</span> <span class="pre">install</span></tt>.</p>
+</div>
+<div class="section" id="contributing">
+<h2>Contributing<a class="headerlink" href="#contributing" title="Permalink to this headline">¶</a></h2>
+<p>If you find bugs or errors, please notify us by submitting issues to
+the <a class="reference external" href="https://github.com/sorgerlab/earm/issues">EARM issues page on GitHub</a>.</p>
+<p>Also, we welcome contributions from other researchers studying extrinsic
+apoptosis!  To contribute, fork <a class="reference external" href="https://github.com/sorgerlab/earm">EARM on GitHub</a> and make your revisions and additions. To
+request that your contributions be incorporated in the EARM repository,
+submit a pull request.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Introduction</a><ul>
+<li><a class="reference internal" href="#what-is-earm">What is EARM?</a></li>
+<li><a class="reference internal" href="#goals">Goals</a></li>
+<li><a class="reference internal" href="#installation">Installation</a></li>
+<li><a class="reference internal" href="#how-to-use-the-documentation">How to use the documentation</a></li>
+<li><a class="reference internal" href="#staying-current">Staying current</a></li>
+<li><a class="reference internal" href="#contributing">Contributing</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="index.html"
+                        title="previous chapter">Extrinsic Apoptosis Reaction Model (EARM)</a></p>
+  <h4>Next topic</h4>
+  <p class="topless"><a href="models.html"
+                        title="next chapter">Overview of the models</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/intro.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="models.html" title="Overview of the models"
+             >next</a> |</li>
+        <li class="right" >
+          <a href="index.html" title="Extrinsic Apoptosis Reaction Model (EARM)"
+             >previous</a> |</li>
+        <li><a href="index.html">EARM 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Carlos Lopez, Jeremy Muhlich, John Bachman, Peter Sorger.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>

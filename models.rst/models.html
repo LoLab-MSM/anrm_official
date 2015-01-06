@@ -1,0 +1,320 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    
+    <title>Overview of the models &mdash; EARM 2.0 documentation</title>
+    
+    <link rel="stylesheet" href="_static/default.css" type="text/css" />
+    <link rel="stylesheet" href="_static/pygments.css" type="text/css" />
+    
+    <script type="text/javascript">
+      var DOCUMENTATION_OPTIONS = {
+        URL_ROOT:    './',
+        VERSION:     '2.0',
+        COLLAPSE_INDEX: false,
+        FILE_SUFFIX: '.html',
+        HAS_SOURCE:  true
+      };
+    </script>
+    <script type="text/javascript" src="_static/jquery.js"></script>
+    <script type="text/javascript" src="_static/underscore.js"></script>
+    <script type="text/javascript" src="_static/doctools.js"></script>
+    <link rel="top" title="EARM 2.0 documentation" href="index.html" />
+    <link rel="prev" title="Introduction" href="intro.html" /> 
+  </head>
+  <body>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             accesskey="I">index</a></li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             accesskey="P">previous</a> |</li>
+        <li><a href="index.html">EARM 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>  
+
+    <div class="document">
+      <div class="documentwrapper">
+        <div class="bodywrapper">
+          <div class="body">
+            
+  <div class="section" id="overview-of-the-models">
+<h1>Overview of the models<a class="headerlink" href="#overview-of-the-models" title="Permalink to this headline">¶</a></h1>
+<p>The Apoptosis Necroptosis Reaction Network (ANRM) contains roughly four
+major mechanistic groups. Each mechanistic group employs modules that list the
+reaction steps  (or rules) contained group.</p>
+<ul class="simple">
+<li>TNF ligation and Complex I assembly</li>
+<li>Complex II reactions</li>
+<li>Hypothesized Bid regulation of RIP1 activity</li>
+<li>Mitochondrial Apoptotic Signaling and PARP Cleavage.</li>
+</ul>
+<a class="reference internal image-reference" href="_images/ANRM_pathway1.png"><img alt="EARM 2.0 pathway/architecture diagram" class="align-center" src="_images/ANRM_pathway1.png" style="height: 400px;" /></a>
+<p>The apoptosis-necroptosis decision-making capability of the ANRM models is captured
+primarily in the assembly and activities of Complex II. There exists distinct RIP1
+and TRADD dependent complexes IIa and IIb respectively. Apoptosis is potentiated by
+RIP1 dependent Complex IIa, which catalyzes the activation of pro-apoptotic caspase
+8. When caspase 8 activity is suppressed (e.g. by cFlip-S) phosphorylated RIP1
+(RIP1-po4) molecules can accumulate trigger activation of pro-necroptotic MLKL.
+TRADD dependent complex IIb mediates the RIP1 dependent FADD independent
+necroptosis observed by [Cite2014]. Complex IIb can, in our model, however,
+recruit FADD and concomitantly signal apoptosis.</p>
+<p>The initial and primary purpose of the ANRM is to explore hypothesized roles of Bid
+in regulating and RIP1 mediated necroptosis. Zinkel et al. proposed that
+phosphorylated Bid can recruit and inactivate (via truncation) RIP1.  This model is
+described in the <strong>&#8220;irvin_anrm_alt_hypothesis&#8221;</strong> model. We refined this model to
+include a complex that contains phosphorylated Bid and the Complex II dependent
+procaspase 8/cFlip-L heterodimer. This complex  catalyzed RIP1 truncation. The
+refined model is model described in <strong>&#8220;irvin_anrm_model&#8221;</strong>. A model lacking
+phosphorylated Bid is described in <strong>&#8220;irvin_anrm_wo_bidpo4&#8221;</strong>.</p>
+<p>Additional hypotheses were proposed in order to address a knowledge gap in the
+transition from Complex I on the plasma membrane to the cytoplasmic Complex II.
+Current descriptions state that complex I recruits, poly-ubiquitinates, de-
+ubiquitinates, and releases RIP1 into the cytoplasm where it will trigger
+programmed cell death. These descriptions describe a net-zero change in the state
+of RIP1. We addressed the problem by hypothesizing various modifications that might
+distinguish endogenous RIP1 from that released from Complex I. Three models
+accurately reproduce the qualitative behavior of apoptotic/necroptotic cells:</p>
+<ul class="simple">
+<li>FADD transiently localizes to TNFR1 to retrieve RIP1</li>
+<li>TRADD:RIP1 is released from Complex I and FADD replaces TRADD in TRADD:RIP1.</li>
+<li>TRADD:RIP1 is released from Complex I and FADD binds TRADD in TRADD:RIP1.</li>
+</ul>
+<p>These three models can be superimposed for a total of 7 possible mechanisms. The
+ANRM models use a superpostion of all three. Combining the Bid hypotheses and the
+models addressing the transition from Complex I to Complex II results in 21 total
+models.</p>
+<p>Mitochondrial Apoptotic Signaling and PARP Cleavage pathway components and reaction
+topologies  are re-used from the previously published EARM 2.0 [Albeck2010].</p>
+<div class="section" id="the-models-in-earm">
+<h2>The models in EARM<a class="headerlink" href="#the-models-in-earm" title="Permalink to this headline">¶</a></h2>
+<p>Below is a list of the 15 alternative Bcl-2 reaction topologies incorporated
+into EARM. More detailed descriptions of each model, along with the source
+code, are found in <tt class="xref doc docutils literal"><span class="pre">modules/index</span></tt>.</p>
+<ul class="simple">
+<li>M1a/b: EARM 2.0, Embedded [Lopez2013]</li>
+<li>M2a/b: EARM 2.0, Direct [Lopez2013]</li>
+<li>M3a/b: EARM 2.0, Indirect [Lopez2013]</li>
+<li>M4a/b: &#8220;Minimal Model&#8221; (Figure 11b) from Albeck et al. (2008) [Albeck2008]</li>
+<li>M5a/b: &#8220;Model B + Bax multimerization&#8221; (Figure 11c) from Albeck et al. (2008)
+[Albeck2008]</li>
+<li>M6a/b: &#8220;Model C + mitochondrial transport&#8221; (Figure 11d) from Albeck et al.
+(2008) [Albeck2008]</li>
+<li>M7a/b: &#8220;Current model&#8221; (Figure 11e) from Albeck et al. (2008) [Albeck2008]</li>
+<li>M8a/b: &#8220;Current model + cooperativity&#8221; (Figure 11f) from Albeck et al. (2008)
+[Albeck2008]</li>
+<li>M9a/b: Deterministic model from Chen et al. (2007), Biophysical Journal
+[Chen2007biophysj]</li>
+<li>M10a/b: Indirect model from Chen et al. (2007), FEBS Letters [Chen2007febs]</li>
+<li>M11a/b: Direct model from Chen et al. (2007), FEBS Letters [Chen2007febs]</li>
+<li>M12a/b: Direct model from Cui et al. (2008) [Cui2008]</li>
+<li>M13a/b: Direct model 1 from Cui et al. (2008) [Cui2008]</li>
+<li>M14a/b: Direct model 2 from Cui et al. (2008) [Cui2008]</li>
+<li>M15a/b: Model incorporating Bad phosphorylation from Howells et al. (2011)
+[Howells2011]</li>
+</ul>
+</div>
+<div class="section" id="how-the-model-code-is-organized">
+<h2>How the model code is organized<a class="headerlink" href="#how-the-model-code-is-organized" title="Permalink to this headline">¶</a></h2>
+<p>For each of the 30 models, there is a corresponding <tt class="docutils literal"><span class="pre">.py</span></tt> file containing
+the model definition. This way any model can be imported using the
+straightforward syntax (for example, for model M1a):</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">earm.lopez_embedded</span> <span class="kn">import</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p>However, the Python files for each individual model in general do not contain
+much code&#8211;they mainly call functions from other modules. For example,
+here is the source code for the file <tt class="docutils literal"><span class="pre">earm/lopez_embedded.py</span></tt>, which
+implements model M1a:</p>
+<p>As this example shows, the model file calls a series of macros that declare the
+monomers (<tt class="xref py py-func docutils literal"><span class="pre">earm.albeck_modules.ligand_to_c8_monomers()</span></tt>,
+<tt class="xref py py-func docutils literal"><span class="pre">earm.lopez_modules.momp_monomers()</span></tt>, and
+<tt class="xref py py-func docutils literal"><span class="pre">earm.albeck_modules.apaf1_to_parp_monomers()</span></tt>), then calls the macros
+implementing the upstream and downstream pathway elements
+(<tt class="xref py py-func docutils literal"><span class="pre">earm.albeck_modules.rec_to_bid()</span></tt> and
+<tt class="xref py py-func docutils literal"><span class="pre">earm.albeck_modules.pore_to_parp()</span></tt>), and finally calls the macro for
+the specific Bcl-2 topology involved: <tt class="xref py py-func docutils literal"><span class="pre">earm.lopez_modules.embedded()</span></tt>.
+Since the observables for all of the full apoptosis model variants is the same,
+these are declared in the final macro that is called,
+<tt class="xref py py-func docutils literal"><span class="pre">earm.shared.observables()</span></tt>.</p>
+<p>All of the model <tt class="docutils literal"><span class="pre">.py</span></tt> files follow this pattern, calling a handful of macros
+to declare monomers and observables and select implementations of different
+pathway modules.</p>
+<p>Note that the <tt class="docutils literal"><span class="pre">.py</span></tt> model files for the full-apoptosis models (M1a - M15a)
+are found in the top-level <tt class="docutils literal"><span class="pre">earm</span></tt> module, but the files for the MOMP-only
+models (M1b - M15b) are found in the submodule <tt class="docutils literal"><span class="pre">earm.mito</span></tt>.</p>
+<p>The documentation for all model files (with links to source code) can be found
+at the following links:</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+<p>The details of the various macro implementations are found in the following
+four files:</p>
+<div class="toctree-wrapper compound">
+<ul class="simple">
+</ul>
+</div>
+</div>
+<div class="section" id="momp-module-boundaries">
+<h2>MOMP module &#8220;boundaries&#8221;<a class="headerlink" href="#momp-module-boundaries" title="Permalink to this headline">¶</a></h2>
+<p>In the interest of consistency, all of the models have been defined with the
+same boundaries in terms of their position in the overall extrinsic apoptosis
+pathway: they are all triggered by the addition of an active BH3-only species
+(e.g., tBid) as their most &#8220;upstream&#8221; event, and they all result in the release
+in one or more mitochondrial substances (e.g. Cytochrome C and/or Smac) as
+their most downstream event. This represents a compromise between the approach
+of the MOMP models described in Albeck et al (in which caspase-8, rather than
+tBid, served as the input) and the models of the Shen group, in which active
+Bax or Bax pores, rather than Cytochrome C or Smac, served as the output.</p>
+<p>While these interface boundaries represent the default condition, they can be
+modified by passing parameters in to the module macro. For example, by setting
+<cite>do_pore_transport=False</cite> in the call to one of the Shen models, the Cytochrome
+C and Smac release reactions are not added, and the models can be directly
+compared to their originally published versions. Similarly, the upstream
+caspase-8/Bid reactions can be added to the Albeck MOMP models to make them
+consistent with their published versions.</p>
+<p>Since our purpose in using these models is primarily to embed them in a common
+pathway context, rather than to reproduce previous results for posterity, our
+conclusion in working with them was that it is better to have a consistent
+interface by default and reproduce published results by modifying the model
+rather than implement the model as published by default and then have to
+specifically modify each one separately to fit the pathway context
+appropriately.</p>
+</div>
+<div class="section" id="how-to-use-the-models">
+<h2>How to use the models<a class="headerlink" href="#how-to-use-the-models" title="Permalink to this headline">¶</a></h2>
+<p>To import a model use the syntax:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">earm.lopez_embedded</span> <span class="kn">import</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p>That&#8217;s it. You now have a model object that you can query, simulate, perform
+parameter estimation on, etc. If you wanted the MOMP-only version, which is
+in the sub-module <tt class="docutils literal"><span class="pre">mito</span></tt>, simply run:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">earm.mito.lopez_embedded</span> <span class="kn">import</span> <span class="n">model</span>
+</pre></div>
+</div>
+<p>If you want to work with multiple models at the same time (e.g., to compare
+them), you can write:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="kn">from</span> <span class="nn">earm.chen2007_indirect</span> <span class="kn">import</span> <span class="n">model</span> <span class="k">as</span> <span class="n">indirect</span>
+<span class="kn">from</span> <span class="nn">earm.chen2007_direct</span> <span class="kn">import</span> <span class="n">model</span> <span class="k">as</span> <span class="n">direct</span>
+</pre></div>
+</div>
+<p>For more information on the kinds of analysis you can do using PySB models,
+see the <a class="reference external" href="http://pysb.rtfd.org">PySB documentation</a>.</p>
+</div>
+<div class="section" id="parameter-values">
+<h2>Parameter values<a class="headerlink" href="#parameter-values" title="Permalink to this headline">¶</a></h2>
+<p>Parameter values (both rate constants and initial protein concentrations) are
+embedded directly in the model code rather than in a separate table or file.
+The values in the model definition represent estimates or nominal values and
+can be easily overridden using values obtained (for example) by measurement or
+parameter estimation algorithms.  We do not maintain a separate list or table of
+parameter values, as we have found that the clearest description of the
+meaning of a rate parameter is the macro or rule statement in which it is
+embedded.</p>
+<p>If desired, lists of all model parameters can be obtained via the parameters
+instance variable of the model object, i.e.:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">model</span><span class="o">.</span><span class="n">parameters</span>
+</pre></div>
+</div>
+<p>A list of all parameter names can be obtained using the list comprehension:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="p">[</span><span class="n">p</span><span class="o">.</span><span class="n">name</span> <span class="k">for</span> <span class="n">p</span> <span class="ow">in</span> <span class="n">model</span><span class="o">.</span><span class="n">parameters</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+<div class="section" id="the-code-is-meant-to-be-read">
+<h2>The code is meant to be read!<a class="headerlink" href="#the-code-is-meant-to-be-read" title="Permalink to this headline">¶</a></h2>
+<p>As much as possible, we have attempted to make the code for models themselves
+transparent and well-documented. The documentation for each model topology has
+been embedded inline in the model source code, and the documentation provided in
+the <tt class="xref doc docutils literal"><span class="pre">modules/index</span></tt> section of the documentation is drawn directly from
+this source.</p>
+<p>Moreover, the models have been written using a high-level vocabulary of
+frequently re-used macros and motifs, with the aim of revealing broad
+similarities and differences between models. The models thus consist of
+statements such as:</p>
+<div class="highlight-python"><div class="highlight"><pre><span class="n">translocate_tBid_Bax_BclXL</span><span class="p">()</span>
+<span class="n">catalyze</span><span class="p">(</span><span class="n">Bid</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s">&#39;T&#39;</span><span class="p">),</span> <span class="n">Bax</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s">&#39;M&#39;</span><span class="p">),</span> <span class="n">Bax</span><span class="p">(</span><span class="n">state</span><span class="o">=</span><span class="s">&#39;A&#39;</span><span class="p">),</span> <span class="n">klist</span><span class="p">)</span>
+</pre></div>
+</div>
+<p>which can be read as saying that &#8220;tBid, Bax and BclXL translocate [to the
+mitochondrial membrane], and tBid catalyzes Bax from a Mitochondrial (but
+inactive) state to an Active state.&#8221; Understanding the precise mechanisms of
+these macros (as expressed in terms of rules and reactions) takes some
+familiarity with their implementation, but as there is a fairly limited set
+of macros, this should hopefully not present a significant barrier.</p>
+</div>
+</div>
+
+
+          </div>
+        </div>
+      </div>
+      <div class="sphinxsidebar">
+        <div class="sphinxsidebarwrapper">
+  <h3><a href="index.html">Table Of Contents</a></h3>
+  <ul>
+<li><a class="reference internal" href="#">Overview of the models</a><ul>
+<li><a class="reference internal" href="#the-models-in-earm">The models in EARM</a></li>
+<li><a class="reference internal" href="#how-the-model-code-is-organized">How the model code is organized</a><ul>
+</ul>
+</li>
+<li><a class="reference internal" href="#momp-module-boundaries">MOMP module &#8220;boundaries&#8221;</a></li>
+<li><a class="reference internal" href="#how-to-use-the-models">How to use the models</a></li>
+<li><a class="reference internal" href="#parameter-values">Parameter values</a></li>
+<li><a class="reference internal" href="#the-code-is-meant-to-be-read">The code is meant to be read!</a></li>
+</ul>
+</li>
+</ul>
+
+  <h4>Previous topic</h4>
+  <p class="topless"><a href="intro.html"
+                        title="previous chapter">Introduction</a></p>
+  <h3>This Page</h3>
+  <ul class="this-page-menu">
+    <li><a href="_sources/models.txt"
+           rel="nofollow">Show Source</a></li>
+  </ul>
+<div id="searchbox" style="display: none">
+  <h3>Quick search</h3>
+    <form class="search" action="search.html" method="get">
+      <input type="text" name="q" />
+      <input type="submit" value="Go" />
+      <input type="hidden" name="check_keywords" value="yes" />
+      <input type="hidden" name="area" value="default" />
+    </form>
+    <p class="searchtip" style="font-size: 90%">
+    Enter search terms or a module, class or function name.
+    </p>
+</div>
+<script type="text/javascript">$('#searchbox').show(0);</script>
+        </div>
+      </div>
+      <div class="clearer"></div>
+    </div>
+    <div class="related">
+      <h3>Navigation</h3>
+      <ul>
+        <li class="right" style="margin-right: 10px">
+          <a href="genindex.html" title="General Index"
+             >index</a></li>
+        <li class="right" >
+          <a href="intro.html" title="Introduction"
+             >previous</a> |</li>
+        <li><a href="index.html">EARM 2.0 documentation</a> &raquo;</li> 
+      </ul>
+    </div>
+    <div class="footer">
+        &copy; Copyright 2012, Carlos Lopez, Jeremy Muhlich, John Bachman, Peter Sorger.
+      Created using <a href="http://sphinx-doc.org/">Sphinx</a> 1.2.3.
+    </div>
+  </body>
+</html>
